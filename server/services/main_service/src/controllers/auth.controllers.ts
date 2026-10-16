@@ -100,8 +100,8 @@ export const verifyOtp = async (req: Request, res: Response) => {
 }
 
 
-export const Login = async (req: Request, res: Response) => {
-    
+export const SignUp = async (req: Request, res: Response) => {
+
     try {
         const { email, password, username }: ILogin = req.body;
 
