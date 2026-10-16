@@ -3,14 +3,19 @@ import dotenv from "dotenv";
 import cors from "cors"
 import connectDB from "../../../shared/config/db.config.js"
 import { connectRedis } from "./config/redis.config.js";
+import authRouter from "./routes/auth.route.js";
+import morgan from "morgan"
 dotenv.config();
 
 const app = express();
 
 app.use(cors({
-
 }))
+
+app.use(morgan("dev"));
+
 app.use(express.json());
+
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
@@ -18,6 +23,8 @@ app.get("/", (req, res) => {
         message: "Server is running"
     });
 });
+
+app.use("/api/v1/auth",authRouter);
 
 const PORT = Number(process.env.PORT) || 8000;
 

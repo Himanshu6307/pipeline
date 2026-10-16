@@ -1,5 +1,7 @@
-
 import mongoose, { Document } from "mongoose";
+
+console.log("DB mongoose path:", import.meta.resolve("mongoose"));
+console.log("DB mongoose instance:", mongoose.version);
 
 interface IUser extends Document {
     username: string;
