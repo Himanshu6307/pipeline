@@ -5,6 +5,7 @@ import connectDB from "../../../shared/config/db.config.js"
 import { connectRedis } from "./config/redis.config.js";
 import authRouter from "./routes/auth.route.js";
 import morgan from "morgan"
+import { diagnostic } from "./middlewares/diagnostic.middleware.js";
 dotenv.config();
 
 const app = express();
@@ -13,7 +14,7 @@ app.use(cors({
 }))
 
 app.use(morgan("dev"));
-
+app.use(diagnostic);
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));

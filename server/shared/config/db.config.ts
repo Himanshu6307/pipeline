@@ -5,8 +5,8 @@ dotenv.config();
 
 const connectDB = async (): Promise<void> => {
 
-    console.log("DB mongoose path:", import.meta.resolve("mongoose"));
-console.log("DB mongoose instance:", mongoose.version);
+//     console.log("DB mongoose path:", import.meta.resolve("mongoose"));
+// console.log("DB mongoose instance:", mongoose.version);
 
 
     const MONGO_URL = process.env.MONGO_URL;
